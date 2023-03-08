@@ -7,7 +7,6 @@ Read messages from the Amazon Simple Queue Service (Amazon SQS).
 """
 
 import logging
-import sys
 
 import boto3
 from botocore.exceptions import ClientError
@@ -25,11 +24,12 @@ def receive_messages(queue, max_number, wait_time):
     Receive a batch of messages in a single request from an SQS queue.
 
     :param queue: The queue from which to receive messages.
-    :param max_number: The maximum number of messages to receive. The actual number
-                       of messages received might be less.
-    :param wait_time: The maximum time to wait (in seconds) before returning. When
-                      this number is greater than zero, long polling is used. This
-                      can result in reduced costs and fewer false empty responses.
+    :param max_number: The maximum number of messages to receive. The actual
+                       number of messages received might be less.
+    :param wait_time: The maximum time to wait (in seconds) before returning.
+                      When this number is greater than zero, long polling is
+                      used. This can result in reduced costs and fewer false
+                      empty responses.
     :return: The list of Message objects received. These each contain the body
              of the message and metadata and custom attributes.
     """
